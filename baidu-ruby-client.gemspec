@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'baidu/ruby/client/version'
+require 'baidu/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "baidu-ruby-client"
-  spec.version       = Baidu::Ruby::Client::VERSION
+  spec.version       = Baidu::VERSION
   spec.authors       = ["Ben Hu"]
   spec.email         = ["benzheren@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "A Ruby Client for Baidu Developer REST APIs"
+  spec.summary       = "A Ruby Client for Baidu Developer REST APIs"
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_dependency "patron", ">= 0"
 end
