@@ -1,6 +1,7 @@
-# Baidu::Ruby::Client
+# Baidu Ruby Client
 
-TODO: Write a gem description
+This is a simple REST client for [Baidu Developer Platform
+Cloud](http://developer.baidu.com/cloud/)
 
 ## Installation
 
@@ -18,7 +19,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TBD
 
 ## Contributing
 
