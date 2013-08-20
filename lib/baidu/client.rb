@@ -40,21 +40,17 @@ module Baidu
         body.merge!({ sign: get_sign(method, base_url + uri, body) })
         options[:data] = gen_body_str(body)
       end
-      
 
-      begin
-        response = @session.request(method, uri, headers, options)
+      response = @session.request(method, uri, headers, options)
 
-        parsed = JSON.parse(response.body)
+      parsed = JSON.parse(response.body)
 
-        if response.status >= 400
-          parsed ||= {}
-          raise BaiduProtocolError.new({"error" => "HTTP Status #{response.status} Body #{response.body}"}.merge(parsed))
-        end
-
-        return parsed
-      rescue
+      if response.status >= 400
+        parsed ||= {}
+        raise BaiduProtocolError.new({"error" => "HTTP Status #{response.status} Body #{response.body}"}.merge(parsed))
       end
+
+      return parsed
     end
 
     def get(service, uri)
