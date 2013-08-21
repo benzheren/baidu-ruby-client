@@ -8,6 +8,7 @@ module Baidu
 
     def initialize(data = {})
       @base_host = data[:base_host] || Protocol::BASE_HOST
+      @url_scheme = data[:url_scheme] || "https:"
       @api_key = data[:api_key]
       @secret_key = data[:secret_key]
 
@@ -32,7 +33,7 @@ module Baidu
       options = {}
       headers = {}
       
-      base_url = 'https://' + service.to_s + @base_host
+      base_url = @url_scheme + '//' + service.to_s + @base_host
       @session.base_url = base_url
 
       if body
