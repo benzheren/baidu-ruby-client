@@ -8,7 +8,7 @@ module Baidu
       
       uri = Protocol.push_uri
 
-      response = Baidu.client.post(:channel, uri, body.merge(data))
+      response = Baidu::Client.new.post(:channel, uri, body.merge(data))
     end
   end
 end

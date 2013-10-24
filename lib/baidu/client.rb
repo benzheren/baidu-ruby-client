@@ -6,7 +6,7 @@ module Baidu
     attr_accessor :api_key
     attr_accessor :secret_key
 
-    def initialize(data = {})
+    def initialize(data = Baidu.config)
       @base_host = data[:base_host] || Protocol::BASE_HOST
       @url_scheme = data[:url_scheme] || "https:"
       @api_key = data[:api_key]
@@ -65,20 +65,12 @@ module Baidu
   end
 
   # Module Methods
-  @@client = nil
-  
-  def Baidu.init(config = {})
-    default_config = {}
-    default_config.merge!(config)
-
-    @@client = Client.new(config)
+  def self.init(config = {})
+    @config = {}
+    @config.merge!(config)
   end
 
-  def Baidu.client
-    if !@@client
-      raise BaiduError, "Baidu API not initialized"
-    end
-
-    @@client
+  def self.config
+    @config
   end
 end
